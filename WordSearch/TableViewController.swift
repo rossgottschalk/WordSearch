@@ -10,10 +10,12 @@ import UIKit
 
 class TableViewController: UITableViewController
 {
-
+    var theAPIController = APIController()
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        theAPIController.initialAPI()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -28,6 +30,14 @@ class TableViewController: UITableViewController
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func createPuzzle(sender: UIButton)
+    {
+        theAPIController.postAPI("20", height: "20", words: "10", minLength: "3", maxLength: "8", capabilities: ["comtheironyardcapabilityAngleBackwardsDownCapability",
+            "comtheironyardcapabilityHorizontalCapability"])
+        
+    }
+    
+    
     // MARK: - Table view data source
 
 //    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
